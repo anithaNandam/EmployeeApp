@@ -1,0 +1,24 @@
+<div class="container">
+  <br />
+  <h3>Employee Details</h3>
+  <br />
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <h4>{{ employee.firstName }}</h4>
+        </div>
+        <div class="col text-right">
+          <a href="#" routerLink="/employees/list" class="btn btn-secondary btn-sm">Back To Employees List</a>
+        </div>
+      </div>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Id:</b> {{ employee.id }}</li>
+      <li class="list-group-item"><b>First Name:</b> {{ employee.firstName }}</li>
+      <li class="list-group-item"><b>Last Name:</b> {{ employee.lastName}}</li>
+      <li class="list-group-item"><b>Email:</b> {{ employee.email }}</li>
+      <li class="list-group-item"><b>Contact:</b> {{ employee.mobileNo }}</li>
+    </ul>
+  </div>
+</div>

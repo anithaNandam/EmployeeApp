@@ -1,0 +1,76 @@
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col">
+      <h3>Update Employee</h3>
+    </div>
+    <div class="col text-right">
+      <a href="#" routerLink="/employees/list" class="btn btn-secondary btn-sm">Back To Employees List</a>
+    </div>
+  </div>
+  <br />
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+
+    <input formControlName="id"
+           id="id"
+           type="hidden" />
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input formControlName="firstName"
+             id="firstName"
+             type="text"
+             class="form-control" />
+              <span class="text-danger"
+                                *ngIf="(f.firstName.touched) && f.firstName.errors?.required">
+                                FirstName is required.
+                            </span>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input formControlName="lastName"
+             id="lastName"
+             type="text"
+             class="form-control" />
+             <span class="text-danger"
+                                *ngIf="(f.lastName.touched) && f.lastName.errors?.required">
+                                LastName is required.
+                            </span>
+    </div>
+
+   <div class="form-group">
+      <label for="email">Email:</label>
+      <input formControlName="email"
+             id="email"
+             type="text"
+             class="form-control" />
+               <span class="text-danger"
+                                *ngIf="(f.email.touched) && f.email.errors?.required">
+                                Email is required.
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="(f.email.touched) && f.email.errors?.email">
+                               Please, Enter valid email.
+                            </span>
+    </div>
+
+    <div class="form-group">
+      <label for="mobileNo">Contact:</label>
+      <input formControlName="mobileNo"
+             id="mobileNo"
+             type="text"
+             class="form-control" />
+              <span class="text-danger"
+                                *ngIf="(f.mobileNo.touched) && f.mobileNo.errors?.required">
+                                Mobile Number is required.
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="(f.mobileNo.touched) && f.mobileNo.errors?.pattern || f.mobileNo.errors?.invalid">
+                                Please, Enter 10 digit Mobile Number.
+                            </span>
+    </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!editForm.valid">Update</button>
+  </form>
+</div>
